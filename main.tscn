@@ -1,0 +1,212 @@
+[gd_scene load_steps=20 format=4 uid="uid://bwjmkk5711af3"]
+
+[ext_resource type="Script" uid="uid://m6bslqdqw8u5" path="res://Main.cs" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cglww1sytw1wl" path="res://bird.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://vslymvbg5jpd" path="res://Game.cs" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c7jkh7kt57kj8" path="res://Spawners/tree.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cis0bdisyge7t" path="res://Spawners/saw.tscn" id="3_kek77"]
+[ext_resource type="Texture2D" uid="uid://dgw4swhrn45fk" path="res://ground.png" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://de48jv8h6lyyb" path="res://Spawners/smile_c.tscn" id="6_5vw27"]
+[ext_resource type="PackedScene" uid="uid://bhh5w3218e655" path="res://Spawners/heart_c.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dc32gkn6gwkf5" path="res://Spawners/question_c.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://dwwrx2ldtj0yu" path="res://background.tscn" id="8_w48qg"]
+[ext_resource type="PackedScene" uid="uid://o1nynjqguv0y" path="res://mainMenu.tscn" id="9_4c57u"]
+[ext_resource type="Script" uid="uid://chwstcs2ug2j5" path="res://MainMenu.cs" id="9_efxa6"]
+[ext_resource type="Texture2D" uid="uid://c0oxbow8bn755" path="res://coin.png" id="11_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://c5avh2fkrt8by" path="res://meters.png" id="12_w48qg"]
+[ext_resource type="PackedScene" uid="uid://bbk7vlwii28rq" path="res://foreground.tscn" id="15_vivmo"]
+[ext_resource type="PackedScene" uid="uid://p4xlksgm10f6" path="res://conveyer.tscn" id="16_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://dkyab18dfco2i" path="res://foreground2.tscn" id="17_yaehf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
+texture = ExtResource("5_lquwl")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)
+
+[sub_resource type="TileSet" id="TileSet_1bvp3"]
+tile_size = Vector2i(128, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_7mycd")
+
+[node name="Main" type="Node"]
+process_mode = 3
+script = ExtResource("1_0xm2m")
+
+[node name="Game" type="Node" parent="."]
+process_mode = 1
+script = ExtResource("2_1bvp3")
+saw = ExtResource("3_kek77")
+tree = ExtResource("2_h2yge")
+heartC = ExtResource("6_7mycd")
+questionC = ExtResource("7_272bh")
+smileC = ExtResource("6_5vw27")
+
+[node name="Parallax2D6" parent="Game" instance=ExtResource("8_w48qg")]
+scale = Vector2(3, 3)
+scroll_offset = Vector2(-1963, 581)
+speed = -200.0
+
+[node name="Parallax2D" parent="Game" instance=ExtResource("8_w48qg")]
+scale = Vector2(3, 3)
+scroll_offset = Vector2(-2091, 694)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Game"]
+position = Vector2(2, 0)
+scale = Vector2(0.962162, 0.997068)
+tile_map_data = PackedByteArray("AAAFAP//AAAAAAAAADAEAP//AAAAAAAAADADAP//AAAAAAAAADACAP//AAAAAAAAADABAP//AAAAAAAAADAAAP//AAAAAAAAADD/////AAAAAAAAADAFAA0AAAAAAAAAAAAEAA0AAAAAAAAAAAADAA0AAAAAAAAAAAACAA0AAAAAAAAAAAABAA0AAAAAAAAAAAAAAA0AAAAAAAAAAAD//w0AAAAAAAAAAAAGAA0AAAAAAAAAAAAGAP//AAAAAAAAADAHAA0AAAAAAAAAAAAHAP//AAAAAAAAADA=")
+tile_set = SubResource("TileSet_1bvp3")
+
+[node name="Parallax2D2" parent="Game" instance=ExtResource("15_vivmo")]
+scroll_offset = Vector2(2, 932)
+
+[node name="Parallax2D4" parent="Game" instance=ExtResource("15_vivmo")]
+scroll_offset = Vector2(-682, 38)
+
+[node name="Parallax2D3" parent="Game" instance=ExtResource("16_2cqfq")]
+scroll_offset = Vector2(-4, 964)
+
+[node name="Parallax2D5" parent="Game" instance=ExtResource("17_yaehf")]
+scroll_offset = Vector2(4, 863)
+speed = -1000.0
+
+[node name="TextureRect" parent="Game" instance=ExtResource("9_4c57u")]
+offset_left = 196.0
+offset_top = 243.0
+offset_right = 452.0
+offset_bottom = 499.0
+script = ExtResource("9_efxa6")
+
+[node name="Timer" type="Timer" parent="Game/TextureRect"]
+
+[node name="gran" parent="Game" instance=ExtResource("1_ig7tw")]
+position = Vector2(78, 736)
+scale = Vector2(0.786822, 0.885939)
+JumpVelocity = -120.0
+
+[node name="treeSpawn" type="Marker2D" parent="Game"]
+position = Vector2(1305, 407)
+
+[node name="Timer" type="Timer" parent="Game/treeSpawn"]
+autostart = true
+
+[node name="ScoreLayer" type="CanvasLayer" parent="Game"]
+
+[node name="Container" type="HFlowContainer" parent="Game/ScoreLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -713.0
+offset_top = 25.0
+offset_right = -713.0
+offset_bottom = 339.0
+grow_horizontal = 2
+scale = Vector2(3, 3)
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Game/ScoreLayer/Container"]
+layout_mode = 2
+texture = ExtResource("11_ycdy4")
+expand_mode = 2
+
+[node name="Score" type="RichTextLabel" parent="Game/ScoreLayer/Container"]
+layout_mode = 2
+text = "0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Game/ScoreLayer/Container"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("12_w48qg")
+expand_mode = 2
+
+[node name="Distance" type="RichTextLabel" parent="Game/ScoreLayer/Container"]
+layout_mode = 2
+text = "0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+tab_size = 5
+
+[node name="sawSpawn" type="Marker2D" parent="Game"]
+position = Vector2(-270, 769)
+
+[node name="Timer" type="Timer" parent="Game/sawSpawn"]
+wait_time = 15.0
+autostart = true
+
+[node name="MenuLayer" type="CanvasLayer" parent="."]
+process_mode = 2
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HighScore" type="RichTextLabel" parent="MenuLayer/VBoxContainer"]
+layout_mode = 2
+text = "New Highscore!"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="FinalScore" type="RichTextLabel" parent="MenuLayer/VBoxContainer"]
+layout_mode = 2
+text = "You scored:"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="RetryButton" type="Button" parent="MenuLayer/VBoxContainer"]
+layout_mode = 2
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="MenuLayer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+process_mode = 2
+visible = false
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PauseLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.0
+offset_top = 5.0
+offset_right = 350.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="PauseLayer/VBoxContainer2"]
+layout_mode = 2
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="PauseLayer/VBoxContainer2"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="OnDeath" from="Game" to="." method="OnPlayerDeath"]
+[connection signal="OnScore" from="Game/gran" to="Game" method="PlayerHasScored"]
+[connection signal="timeout" from="Game/treeSpawn/Timer" to="Game" method="OnSpawnTimerTimeout"]
+[connection signal="timeout" from="Game/sawSpawn/Timer" to="Game" method="OnSawTimeout"]
+[connection signal="pressed" from="MenuLayer/VBoxContainer/RetryButton" to="." method="OnRetry"]
+[connection signal="pressed" from="MenuLayer/VBoxContainer/QuitButton" to="." method="OnQuit"]
+[connection signal="pressed" from="PauseLayer/VBoxContainer2/RetryButton" to="." method="OnRetry"]
+[connection signal="pressed" from="PauseLayer/VBoxContainer2/QuitButton" to="." method="OnQuit"]

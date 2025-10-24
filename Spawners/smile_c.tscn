@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=4 uid="uid://de48jv8h6lyyb"]
+
+[ext_resource type="PackedScene" uid="uid://bdch3e1ejabg0" path="res://coin.tscn" id="1_5ok1i"]
+[ext_resource type="Script" uid="uid://djc80v4stjrxo" path="res://Spawners/SmileC.cs" id="2_r1fmo"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_r1fmo"]
+scenes/1/scene = ExtResource("1_5ok1i")
+
+[sub_resource type="TileSet" id="TileSet_opkqn"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetScenesCollectionSource_r1fmo")
+
+[node name="Node2D" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAD8/wIAAAAAAAAAAQD9/wIAAAAAAAAAAQD+/wIAAAAAAAAAAQABAAIAAAAAAAAAAQACAAIAAAAAAAAAAQADAAIAAAAAAAAAAQD6/wQAAAAAAAAAAQD6/wUAAAAAAAAAAQD7/wYAAAAAAAAAAQD8/wAAAAAAAAAAAQD8/wEAAAAAAAAAAQD8/wcAAAAAAAAAAQD9/wAAAAAAAAAAAQD9/wcAAAAAAAAAAQD+/wAAAAAAAAAAAQD+/wEAAAAAAAAAAQD+/wcAAAAAAAAAAQD//wcAAAAAAAAAAQAAAAcAAAAAAAAAAQABAAAAAAAAAAAAAQABAAEAAAAAAAAAAQABAAcAAAAAAAAAAQACAAAAAAAAAAAAAQACAAcAAAAAAAAAAQADAAAAAAAAAAAAAQADAAEAAAAAAAAAAQADAAcAAAAAAAAAAQAEAAYAAAAAAAAAAQAFAAQAAAAAAAAAAQAFAAUAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_opkqn")
+script = ExtResource("2_r1fmo")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(731, 0)
+scale = Vector2(2.18518, 5.59444)

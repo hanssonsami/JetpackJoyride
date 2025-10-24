@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://o1nynjqguv0y"]
+
+[ext_resource type="Texture2D" uid="uid://gtjn1ur03pk2" path="res://logotype.png" id="1_wut1r"]
+
+[node name="TextureRect" type="TextureRect"]
+offset_left = 211.0
+offset_top = 206.0
+offset_right = 467.0
+offset_bottom = 462.0
+texture = ExtResource("1_wut1r")

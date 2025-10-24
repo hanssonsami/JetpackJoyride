@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn62veth1fyju"]
+
+[ext_resource type="PackedScene" uid="uid://c7jkh7kt57kj8" path="res://Spawners/tree.tscn" id="1_a8bs8"]
+
+[node name="SpinLaser" type="Node2D"]
+
+[node name="Laser" parent="." instance=ExtResource("1_a8bs8")]
+position = Vector2(1607, 245)

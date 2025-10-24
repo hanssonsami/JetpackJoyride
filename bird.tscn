@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://cglww1sytw1wl"]
+
+[ext_resource type="Script" uid="uid://bhn5lr4e2b4b8" path="res://Gran.cs" id="1_crnqq"]
+[ext_resource type="Texture2D" uid="uid://cbk6gm6d4au7" path="res://shitto tilemap.png" id="3_j88tq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j88tq"]
+atlas = ExtResource("3_j88tq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cchwj"]
+atlas = ExtResource("3_j88tq")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ljjq"]
+atlas = ExtResource("3_j88tq")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_axl6x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j88tq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cchwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ljjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cchwj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crnqq"]
+size = Vector2(111, 117)
+
+[node name="gran" type="CharacterBody2D"]
+scale = Vector2(0.462645, 0.486891)
+script = ExtResource("1_crnqq")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9, -9)
+scale = Vector2(1.67229, 1.43831)
+sprite_frames = SubResource("SpriteFrames_axl6x")
+frame_progress = 0.399704
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10.5, 7.5)
+shape = SubResource("RectangleShape2D_crnqq")

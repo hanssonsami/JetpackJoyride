@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=4 uid="uid://bhh5w3218e655"]
+
+[ext_resource type="PackedScene" uid="uid://bdch3e1ejabg0" path="res://coin.tscn" id="1_xk7q2"]
+[ext_resource type="Script" uid="uid://dgk53b0cpp8is" path="res://Spawners/HeartC.cs" id="2_p2dpg"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_yykd5"]
+scenes/1/scene = ExtResource("1_xk7q2")
+
+[sub_resource type="TileSet" id="TileSet_dcsof"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetScenesCollectionSource_yykd5")
+
+[node name="HeartC" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAD9/wAAAAAAAAAAAQD+/wAAAAAAAAAAAQD+/wEAAAAAAAAAAQD//wEAAAAAAAAAAQD//wIAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAQAAAAIAAAAAAAAAAQAAAAMAAAAAAAAAAQABAAAAAAAAAAAAAQABAAEAAAAAAAAAAQABAAIAAAAAAAAAAQACAAEAAAAAAAAAAQD8/wEAAAAAAAAAAQD8/wIAAAAAAAAAAQD8/wMAAAAAAAAAAQD8/wQAAAAAAAAAAQD9/wEAAAAAAAAAAQD9/wIAAAAAAAAAAQD9/wMAAAAAAAAAAQD9/wQAAAAAAAAAAQD9/wUAAAAAAAAAAQD+/wIAAAAAAAAAAQD+/wMAAAAAAAAAAQD+/wQAAAAAAAAAAQD+/wUAAAAAAAAAAQD+/wYAAAAAAAAAAQD//wMAAAAAAAAAAQD//wQAAAAAAAAAAQD//wUAAAAAAAAAAQD//wYAAAAAAAAAAQD//wcAAAAAAAAAAQAAAAQAAAAAAAAAAQAAAAUAAAAAAAAAAQAAAAYAAAAAAAAAAQABAAMAAAAAAAAAAQABAAQAAAAAAAAAAQABAAUAAAAAAAAAAQACAAIAAAAAAAAAAQACAAMAAAAAAAAAAQACAAQAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_dcsof")
+script = ExtResource("2_p2dpg")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(486, 6)
+scale = Vector2(2.18518, 5.59444)

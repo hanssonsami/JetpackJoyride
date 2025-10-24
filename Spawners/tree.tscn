@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7jkh7kt57kj8"]
+
+[ext_resource type="Script" uid="uid://x8ck71sekjo8" path="res://Tree.cs" id="1_nnvrw"]
+[ext_resource type="Texture2D" uid="uid://c46cjmu3n2n2" path="res://laser.png" id="2_nnvrw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_71mfb"]
+radius = 79.9591
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nnvrw"]
+radius = 43.257
+height = 804.764
+
+[node name="Laser" type="StaticBody2D"]
+position = Vector2(1307, 356)
+scale = Vector2(0.78958, 0.33796)
+script = ExtResource("1_nnvrw")
+speed = -600.0
+
+[node name="BottomPipe" type="Sprite2D" parent="."]
+position = Vector2(-3.41496, 25.2926)
+scale = Vector2(2.5974, 5.66209)
+texture = ExtResource("2_nnvrw")
+
+[node name="DeathArea" type="Area2D" parent="."]
+scale = Vector2(0.934762, 1.62474)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(14.9038, 309.599)
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_71mfb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(5.41949, -291.387)
+shape = SubResource("CircleShape2D_71mfb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(3.41508, 4.59869)
+shape = SubResource("CapsuleShape2D_nnvrw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(810.557, -707.185)
+scale = Vector2(2.18518, 5.59444)
+
+[connection signal="body_entered" from="DeathArea" to="." method="OnGranDeath"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnScreenExited"]

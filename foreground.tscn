@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbk7vlwii28rq"]
+
+[ext_resource type="Script" uid="uid://b88lsxqig0bh1" path="res://Background.cs" id="1_6vt2y"]
+[ext_resource type="Texture2D" uid="uid://bsp77eisdwe0f" path="res://foreground.png" id="2_kr52x"]
+
+[node name="Parallax2D" type="Parallax2D"]
+scroll_offset = Vector2(6, -13)
+repeat_size = Vector2(700, 0)
+repeat_times = 3
+script = ExtResource("1_6vt2y")
+speed = -700.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, -134)
+texture = ExtResource("2_kr52x")
+centered = false
