@@ -26,7 +26,6 @@ scale = Vector2(0.934762, 1.62474)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathArea"]
 position = Vector2(14.9038, 309.599)
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_71mfb")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathArea"]

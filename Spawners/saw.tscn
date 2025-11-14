@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cis0bdisyge7t"]
 
 [ext_resource type="Script" uid="uid://bh2lf4iwgmad7" path="res://Spawners/Saw.cs" id="1_hjjn4"]
-[ext_resource type="Texture2D" uid="uid://bfrw3j5257kme" path="res://IMG_0327.png" id="1_jgg0v"]
+[ext_resource type="Texture2D" uid="uid://c84ajti1d2tmf" path="res://roller.png" id="2_hjjn4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hjjn4"]
 radius = 57.1402
@@ -11,13 +11,14 @@ position = Vector2(26, 3)
 script = ExtResource("1_hjjn4")
 
 [node name="BottomPipe" type="Sprite2D" parent="."]
-position = Vector2(2, 2)
-scale = Vector2(0.217505, 0.151343)
-texture = ExtResource("1_jgg0v")
+position = Vector2(4, 1)
+scale = Vector2(1.22266, 1.14063)
+texture = ExtResource("2_hjjn4")
 
 [node name="DeathArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_hjjn4")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
